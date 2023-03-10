@@ -5,6 +5,7 @@ const typeDefs = `#graphql
   type Order {
     id: ID!
     state: OrderState!
+    assignedTo: String
     customer: Customer!
     lineItems: [LineItem!]!
     createdAt: DateTime!
@@ -39,7 +40,12 @@ const typeDefs = `#graphql
   scalar DateTime
 
   type Query {
-    orders: [Order]!
+    fetchOrder(id: ID!): Order
+    fetchOrders: [Order]!
+  }
+
+  type Mutation {
+    setOrderState(id: ID!, state: String!, assignedTo: String): Order
   }
 `;
 
@@ -47,6 +53,7 @@ const orders = [
   {
     id: '1',
     state: 'OPEN',
+    assignedTo: null,
     customer: {
       id: '1',
       name: 'John Doe',
@@ -78,7 +85,8 @@ const orders = [
   },
   {
     id: '2',
-    state: 'COMPLETE',
+    state: 'OPEN',
+    assignedTo: null,
     customer: {
       id: '2',
       name: 'Jane Smith',
@@ -112,7 +120,27 @@ const orders = [
 
 const resolvers = {
   Query: {
-    orders: () => orders,
+    fetchOrder(_, args) {
+      return orders.find((order) => order.id === args.id);
+    },
+    fetchOrders: () => orders,
+  },
+  Mutation: {
+    setOrderState: ({ id, state, assignedTo }) => {
+      const order = orders.find((order) => order.id === id);
+      if (!order) {
+        throw new Error(`Order with ID ${id} not found`);
+      }
+
+      order.state = state;
+      if (state === 'IN_PROGRESS') {
+        order.assignedTo = assignedTo;
+      } else {
+        order.assignedTo = null;
+      }
+
+      return order;
+    },
   },
 };
 
