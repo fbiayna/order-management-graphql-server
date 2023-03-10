@@ -1,0 +1,25 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore generated files and directories
+dist/
+*.log
+
+# Ignore environment files
+.env
+
+# Ignore TypeScript configuration files
+tsconfig.json
+tsconfig.build.json
+tsconfig.test.json
+
+# Ignore VS Code settings files
+.vscode/
+
+# Ignore GraphQL schema file
+schema.graphql
+
+# Ignore npm debug log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
