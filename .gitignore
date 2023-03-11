@@ -8,11 +8,6 @@ dist/
 # Ignore environment files
 .env
 
-# Ignore TypeScript configuration files
-tsconfig.json
-tsconfig.build.json
-tsconfig.test.json
-
 # Ignore VS Code settings files
 .vscode/
 
