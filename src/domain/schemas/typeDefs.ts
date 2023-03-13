@@ -1,6 +1,6 @@
 const typeDefs = `#graphql
   type Order {
-    id: ID!
+    _id: ID!
     state: OrderState!
     assignedTo: String
     customer: Customer!
@@ -10,20 +10,20 @@ const typeDefs = `#graphql
   }
 
   type Customer {
-    id: ID!
+    _id: ID!
     name: String!
     email: String!
     address: String!
   }
 
   type LineItem {
-    id: ID!
+    _id: ID!
     product: Product!
     quantity: Int!
   }
 
   type Product {
-    id: ID!
+    _id: ID!
     name: String!
     price: Float!
   }

@@ -1,4 +1,4 @@
-import { OrderRepository } from '../../domain/repositories/orderRepository';
+import { OrderRepository } from '../../infrastructure/repositories/orderRepository';
 
 export class Queries {
   constructor(private readonly orderRepository: OrderRepository) {}
