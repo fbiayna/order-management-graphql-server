@@ -1,36 +1,13 @@
-import orders from '../../data/orders';
 import { OrderRepository } from '../../domain/repositories/orderRepository';
+import { Mutations } from './mutations';
 import { Queries } from './queries';
 
 const queries = new Queries(new OrderRepository());
+const mutations = new Mutations(new OrderRepository());
 
 const resolvers = {
   Query: queries.all,
-  Mutation: {
-    setOrderState: ({
-      id,
-      state,
-      assignedTo,
-    }: {
-      id: string;
-      state: string;
-      assignedTo: any;
-    }) => {
-      const order = orders.find((order) => order.id === id);
-      if (!order) {
-        throw new Error(`Order with ID ${id} not found`);
-      }
-
-      order.state = state;
-      if (state === 'IN_PROGRESS') {
-        order.assignedTo = assignedTo;
-      } else {
-        order.assignedTo = null;
-      }
-
-      return order;
-    },
-  },
+  Mutation: mutations.all,
 };
 
 export default resolvers;
