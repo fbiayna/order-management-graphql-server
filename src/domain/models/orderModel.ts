@@ -2,12 +2,12 @@ import { Schema, model } from 'mongoose';
 
 const orderSchema = new Schema({
   _id: Schema.Types.ObjectId,
-  state: String,
+  state: 'string',
   assignedTo: { type: Schema.Types.Mixed },
   customer: { type: Schema.Types.ObjectId, ref: 'customers' },
   lineItems: [{ type: Schema.Types.ObjectId, ref: 'lineitems' }],
-  createdAt: Date,
-  updatedAt: Date,
+  createdAt: 'date',
+  updatedAt: 'date',
 });
 
 export const OrderModel = model('orders', orderSchema);

@@ -3,9 +3,13 @@ import { CustomerModel } from '../../domain/models/customerModel';
 import { LineItemModel } from '../../domain/models/lineItemModel';
 import { OrderModel } from '../../domain/models/orderModel';
 import { ProductModel } from '../../domain/models/productModel';
+import Order from '../../domain/entities/Order';
 
 export class OrderRepository implements OrderRepositoryType {
-  fetchOrder = async (_: any, args: { id: string }): Promise<any | void> => {
+  fetchOrder = async (
+    _: unknown,
+    args: { id: string }
+  ): Promise<Order | null | void> => {
     try {
       return OrderModel.findById(args.id, undefined, {
         populate: [
@@ -27,7 +31,7 @@ export class OrderRepository implements OrderRepositoryType {
     }
   };
 
-  fetchOrders = async (): Promise<any | void> => {
+  fetchOrders = async (): Promise<Order[] | null | void> => {
     try {
       return OrderModel.find({}, undefined, {
         populate: [

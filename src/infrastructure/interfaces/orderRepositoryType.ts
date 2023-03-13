@@ -1,6 +1,11 @@
+import Order from '../../domain/entities/Order';
+
 export interface OrderRepositoryType {
-  fetchOrder(_: any, args: any): any;
-  fetchOrders(): any;
+  fetchOrder: (
+    _: unknown,
+    args: { id: string }
+  ) => Promise<Order | null | void>;
+  fetchOrders: () => Promise<Order[] | null | void>;
   // setOrderState: ({
   //   id,
   //   state,

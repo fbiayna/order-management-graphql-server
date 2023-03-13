@@ -39,7 +39,7 @@ try {
   });
 
   await server.start();
-  app.use(cors(), bodyParser.json(), expressMiddleware(server));
+  app.use('/', cors(), bodyParser.json(), expressMiddleware(server));
 
   // Run
 
