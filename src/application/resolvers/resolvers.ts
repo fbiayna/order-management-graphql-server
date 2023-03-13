@@ -1,4 +1,4 @@
-import { OrderRepository } from '../../domain/repositories/orderRepository';
+import { OrderRepository } from '../../infrastructure/repositories/orderRepository';
 import { Mutations } from './mutations';
 import { Queries } from './queries';
 
