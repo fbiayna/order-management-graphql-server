@@ -1,18 +1,17 @@
 import Order from '../../domain/entities/Order';
+import type { PopulateOptions } from 'mongoose';
+import { OrderState } from '../../domain/entities/orderState';
 
 export interface OrderRepositoryType {
   fetchOrder: (
-    _: unknown,
-    args: { id: string }
+    id: string,
+    populate?: PopulateOptions[]
   ) => Promise<Order | null | void>;
-  fetchOrders: () => Promise<Order[] | null | void>;
-  // setOrderState: ({
-  //   id,
-  //   state,
-  //   assignedTo,
-  // }: {
-  //   id: string;
-  //   state: string;
-  //   assignedTo: any;
-  // }) => any;
+  fetchOrders: (populate?: PopulateOptions[]) => Promise<Order[] | null | void>;
+  setOrderState: (
+    id: string,
+    state: OrderState,
+    assignedTo: string,
+    populate?: PopulateOptions[]
+  ) => Promise<Order | null | void>;
 }
