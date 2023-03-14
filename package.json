@@ -7,8 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
-    "start": "npm run build && node dist/application/index.js",
-    "start:dev": "nodemon"
+    "start:dev": "nodemon",
+    "start:prod": "npm run build && node dist/application/index.js"
   },
   "keywords": [],
   "author": "",
