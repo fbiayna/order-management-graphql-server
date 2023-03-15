@@ -33,7 +33,7 @@ export class OrderRepository implements OrderRepositoryType {
   setOrderState = async (
     id: string,
     state: OrderState,
-    assignedTo: string | null,
+    assignedTo?: string,
     populate?: PopulateOptions[]
   ): Promise<Order | null | void> => {
     try {

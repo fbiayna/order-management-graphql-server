@@ -40,7 +40,7 @@ export class Mutations {
           return await this.orderRepository.setOrderState(
             id,
             state,
-            state === OrderState.inProgress && assignedTo ? assignedTo : null,
+            state === OrderState.inProgress ? assignedTo : undefined,
             populateItems
           );
         } catch (error) {
