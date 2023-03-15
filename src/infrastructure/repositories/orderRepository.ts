@@ -8,7 +8,7 @@ export class OrderRepository implements OrderRepositoryType {
   fetchOrder = async (
     id: string,
     populate?: PopulateOptions[]
-  ): Promise<Order | null | void> => {
+  ): Promise<Order | null> => {
     try {
       return await OrderModel.findById(id, undefined, {
         populate,
@@ -20,7 +20,7 @@ export class OrderRepository implements OrderRepositoryType {
 
   fetchOrders = async (
     populate?: PopulateOptions[]
-  ): Promise<Order[] | null | void> => {
+  ): Promise<Order[] | null> => {
     try {
       return await OrderModel.find({}, undefined, {
         populate,
@@ -35,7 +35,7 @@ export class OrderRepository implements OrderRepositoryType {
     state: OrderState,
     assignedTo?: string,
     populate?: PopulateOptions[]
-  ): Promise<Order | null | void> => {
+  ): Promise<Order | null> => {
     try {
       return await OrderModel.findByIdAndUpdate(
         id,

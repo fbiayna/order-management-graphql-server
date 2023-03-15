@@ -8,6 +8,9 @@ dist/
 # Ignore environment files
 .env
 
+# Ignore sonar
+.scannerwork
+
 # Ignore coverage
 coverage/
 

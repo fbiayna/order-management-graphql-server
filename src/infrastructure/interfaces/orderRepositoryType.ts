@@ -6,12 +6,12 @@ export interface OrderRepositoryType {
   fetchOrder: (
     id: string,
     populate?: PopulateOptions[]
-  ) => Promise<Order | null | void>;
-  fetchOrders: (populate?: PopulateOptions[]) => Promise<Order[] | null | void>;
+  ) => Promise<Order | null>;
+  fetchOrders: (populate?: PopulateOptions[]) => Promise<Order[] | null>;
   setOrderState: (
     id: string,
     state: OrderState,
     assignedTo: string,
     populate?: PopulateOptions[]
-  ) => Promise<Order | null | void>;
+  ) => Promise<Order | null>;
 }
