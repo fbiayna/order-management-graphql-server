@@ -1,4 +1,4 @@
-# MediamarktSaturn Challenge - Server
+# Order management graphql server
 
 ## Installation
 
