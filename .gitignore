@@ -8,6 +8,9 @@ dist/
 # Ignore environment files
 .env
 
+# Ignore coverage
+coverage/
+
 # Ignore VS Code settings files
 .vscode/
 
