@@ -41,7 +41,7 @@ export class OrderRepository implements OrderRepositoryType {
         id,
         {
           state,
-          assignedTo,
+          assignedTo: assignedTo ?? null,
           updatedAt: Date.now(),
         },
         { populate, new: true }
